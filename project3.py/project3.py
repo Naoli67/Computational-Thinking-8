@@ -1,6 +1,5 @@
 import turtle
 import time
-import random
 
 # Section1 - Variables
 x1, y1 = -200, 180
@@ -10,7 +9,7 @@ x4, y4 = -200, -180
 
 speed1, speed2, speed3, speed4 = 2, 4, 6, 8
 finish_x = 200
-
+# player 4 goes the fastest and will always win and player 3 will be second than player 2 than last is player 1.
 # Section2 - Setup
 screen = turtle.Screen()
 screen.bgcolor("lightblue")
@@ -40,7 +39,6 @@ t4.color("yellow")
 t4.penup()
 t4.goto(x4, y4)
 
-# Draw finish line
 s_line = turtle.Turtle()
 s_line.hideturtle()
 s_line.penup()
@@ -54,9 +52,10 @@ s_line.penup()
 s_line.goto(finish_x, 220)
 s_line.write("FINISH", align="center", font=("Arial", 16, "bold"))
 
-# Section3 - Racing
+# Section3 - Racing 
 winner = None
-while not winner:
+
+for i in range(500):  
     x1 += speed1
     x2 += speed2
     x3 += speed3
@@ -69,12 +68,16 @@ while not winner:
 
     if x1 >= finish_x:
         winner = 1
+        break
     elif x2 >= finish_x:
         winner = 2
+        break
     elif x3 >= finish_x:
         winner = 3
+        break
     elif x4 >= finish_x:
         winner = 4
+        break
 
     time.sleep(0.1)
 
